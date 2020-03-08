@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'homes/top'
+  end
+  get 'homes/top'
+  namespace :admin do
+    get 'muscles/new'
+    get 'muscles/index'
+    get 'muscles/show'
+    get 'muscles/edit'
+  end
+  namespace :admin do
+    get 'genres/new'
+    get 'genres/index'
+    get 'genres/edit'
+  end
   get 'notes/new'
   get 'notes/index'
   get 'notes/show'
