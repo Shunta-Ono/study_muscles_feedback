@@ -1,5 +1,9 @@
 class Admin::MusclesController < Admin::BaseController
+
   def new
+  end
+
+  def create
   end
 
   def index
@@ -10,4 +14,11 @@ class Admin::MusclesController < Admin::BaseController
 
   def edit
   end
+
+  def update
+  end
+
+  def destroy
+  end
+
 end
