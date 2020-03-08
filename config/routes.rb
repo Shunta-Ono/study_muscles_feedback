@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'notes/new'
+  get 'notes/index'
+  get 'notes/show'
+  get 'notes/edit'
+  get 'genres/index'
+  get 'muscles/index'
+  get 'muscles/show'
+  get 'users/show'
   devise_for :admins, controllers: {
     sessions: "admin/devise/sessions",
     passwords: "admin/devise/passwords",
