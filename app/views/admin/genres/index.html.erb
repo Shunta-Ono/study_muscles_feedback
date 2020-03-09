@@ -1,1 +1,15 @@
-<h1>genre</h1>
+<h1>ジャンル追加画面</h1>
+<%= form_for [:admin, @genre] do |f| %>
+<%= f.attachment_field :image %>
+<%= f.label :name, "部位名" %>
+<%= f.text_field :name %>
+<%= f.submit '作成' %>
+<% end %>
+
+<h1>部位一覧</h1>
+<% @genres.each do |genre| %>
+<%= attachment_image_tag genre, :image, :size => '250x250' %>
+<%= genre.name %>
+<%= link_to "編集", edit_admin_genre_path(genre.id) %>
+<%= link_to "削除", admin_genre_path(genre.id), method: :delete, data:{confirm: "削除しますか？"} %>
+<% end %>
