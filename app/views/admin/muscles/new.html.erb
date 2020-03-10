@@ -1,1 +1,12 @@
 <h1>筋肉登録画面</h1>
+<%= form_for [:admin, @muscle] do |f| %>
+<%= f.label '名前' %>
+<%= f.text_field :name %>
+<%= f.label '支配神経' %>
+<%= f.text_field :innervation %>
+<%= f.label '作用' %>
+<%= f.text_field :action %>
+<%= f.label '追加情報' %>
+<%= f.text_area :information %>
+<%= f.submit '作成' %>
+<% end -%>
