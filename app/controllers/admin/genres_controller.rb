@@ -6,8 +6,13 @@ class Admin::GenresController < Admin::BaseController
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.save
-    redirect_to admin_genres_path
+    if @genre.save
+      flash[:notice] = "新しい部位を追加しました。"
+      redirect_to admin_genres_path
+    else
+      @genres = Genre.all
+      render action: :index
+    end
   end
 
   def index

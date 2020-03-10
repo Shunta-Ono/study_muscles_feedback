@@ -1,15 +1,39 @@
-<h1>ジャンル追加画面</h1>
-<%= form_for [:admin, @genre] do |f| %>
-<%= f.attachment_field :image %>
-<%= f.label :name, "部位名" %>
-<%= f.text_field :name %>
-<%= f.submit '作成' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <% if @genre.errors.any? %>
+        <div id="erroe_explanation" class="alert alert-danger">
+          <ul>
+            <%= @genre.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= flash[:notice] %>
+      <h1>部位追加</h1>
+        <%= form_for [:admin, @genre] do |f| %>
+        <%= f.label :image, "画像" %>
+        <%= f.attachment_field :image %>
+        <%= image_tag 'sample_image.jpeg', id: "file-preview", :size => '250x250' %>
+        <%= f.label :name, "部位名" %>
+        <p><%= f.text_field :name %></p>
+        <%= f.submit '作成する', class: "btn btn-success"  %>
+        <% end %>
+    </div>
 
-<h1>部位一覧</h1>
-<% @genres.each do |genre| %>
-<%= attachment_image_tag genre, :image, :size => '250x250' %>
-<%= genre.name %>
-<%= link_to "編集", edit_admin_genre_path(genre.id) %>
-<%= link_to "削除", admin_genre_path(genre.id), method: :delete, data:{confirm: "削除しますか？"} %>
-<% end %>
+    <div class="col-xs-9">
+      <h1>部位一覧</h1>
+      <% @genres.each do |genre| %>
+      <div class="genre-card">
+        <%= attachment_image_tag genre, :image, :size => '250x250' %>
+        <div class="genre-card-info text-center">
+          <p class="genre-card-name"><%= "部位：#{genre.name}" %></p>
+          <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
+          <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
