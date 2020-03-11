@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   #user
   get 'homes/top'
+  resources :users, only: [:show]
   resources :muscles, only: [:index,:show]
   resources :genres, only: [:index]
   resources :notes
