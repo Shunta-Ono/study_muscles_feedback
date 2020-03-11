@@ -21,18 +21,25 @@ class Admin::GenresController < Admin::BaseController
   end
 
   def edit
+    @genres = Genre.all
     @genre = Genre.find(params[:id])
   end
 
   def update
     @genre = Genre.find(params[:id])
-    @genre.update(genre_params)
-    redirect_to admin_genres_path
+    if @genre.update(genre_params)
+      flash[:notice] = "部位を編集しました。"
+      redirect_to admin_genres_path
+    else
+      @genres = Genre.all
+      render action: :edit
+    end
   end
 
   def destroy
     genre = Genre.find(params[:id])
     genre.delete
+    flash[:alert] = "部位を削除しました。"
     redirect_to admin_genres_path
   end
 
