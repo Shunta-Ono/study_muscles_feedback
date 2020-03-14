@@ -29,6 +29,9 @@ class Admin::MusclesController < Admin::BaseController
   end
 
   def update
+    @muscle = Muscle.find(params[:id])
+    @muscle.update(muscle_params)
+    redirect_to admin_muscle_path(@muscle.id)
   end
 
   def destroy
