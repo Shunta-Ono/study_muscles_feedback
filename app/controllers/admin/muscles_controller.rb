@@ -7,7 +7,6 @@ class Admin::MusclesController < Admin::BaseController
 
   def create
     @muscle = Muscle.new(muscle_params)
-    @muscle.genre_id = Genre.last.id
     if @muscle.save
       flash[:notice] = "新しい筋肉を作成しました"
       redirect_to admin_muscles_path
