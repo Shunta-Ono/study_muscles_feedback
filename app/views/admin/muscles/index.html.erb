@@ -1,1 +1,29 @@
-<h1>muscle/index</h1>
+<div class="container">
+  <h1>筋肉一覧</h1>
+  <%= link_to "筋肉を追加する", new_admin_muscle_path, class: "btn btn-success" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>筋肉名</th>
+        <th>支配神経</th>
+        <th>作用</th>
+        <th>部位</th>
+        <th>追加情報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @muscles.each do |muscle| %>
+      <tr>
+        <td><%= link_to muscle.name, admin_muscle_path(muscle.id) %></td>
+        <td><%= muscle.innervation %></td>
+        <td><%= muscle.action %></td>
+        <td><%= muscle.genre.name %></td>
+        <td><%= muscle.information %></td>
+        <td><%= link_to "編集", edit_admin_muscle_path(muscle.id), class: "btn btn-success" %></td>
+        <td><%= link_to "削除", admin_muscle_path(muscle.id), method: :delete, data:{confirm: "この筋肉を削除しますか？"},class: "btn btn-danger" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

@@ -18,18 +18,24 @@ class Admin::MusclesController < Admin::BaseController
   end
 
   def index
+    @muscles = Muscle.all
   end
 
   def show
+    @muscle =Muscle.find(params[:id])
   end
 
   def edit
+    @muscle = Muscle.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    @muscle = Muscle.find(params[:id])
+    @muscle.destroy
+    redirect_to admin_muscles_path
   end
 
   private
