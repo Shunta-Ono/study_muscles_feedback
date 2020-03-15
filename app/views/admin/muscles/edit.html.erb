@@ -23,6 +23,14 @@
         <p><%= f.text_field :name %></p>
       </div>
       <div class="form-group">
+        <%= f.label :origin, '起始' %><span class="input-required">※必須</span>
+        <p><%= f.text_field :origin %></p>
+      </div>
+      <div class="form-group">
+        <%= f.label :insertion, '停止' %><span class="input-required">※必須</span>
+        <p><%= f.text_field :insertion %></p>
+      </div>
+      <div class="form-group">
         <%= f.label :innervation, '支配神経' %><span class="input-required">※必須</span>
         <p><%= f.text_field :innervation, class: "form-control" %></p>
       </div>
