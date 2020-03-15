@@ -43,7 +43,7 @@ class Admin::MusclesController < Admin::BaseController
   private
 
   def muscle_params
-    params.require(:muscle).permit(:genre_id, :name, :innervation, :action, :information, muscle_images_attributes:[:image])
+    params.require(:muscle).permit(:genre_id, :name, :innervation, :action, :origin, :insertion, :information, muscle_images_attributes:[:image])
   end
 
 end
