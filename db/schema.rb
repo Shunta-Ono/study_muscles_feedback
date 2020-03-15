@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_140151) do
+ActiveRecord::Schema.define(version: 2020_03_15_094221) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,14 +31,12 @@ ActiveRecord::Schema.define(version: 2020_03_08_140151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "muscle_images", force: :cascade do |t|
     t.string "image_id"
     t.integer "muscle_id"
-    t.integer "note_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["muscle_id"], name: "index_images_on_muscle_id"
-    t.index ["note_id"], name: "index_images_on_note_id"
+    t.index ["muscle_id"], name: "index_muscle_images_on_muscle_id"
   end
 
   create_table "muscles", force: :cascade do |t|
@@ -49,7 +47,17 @@ ActiveRecord::Schema.define(version: 2020_03_08_140151) do
     t.text "information"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "origin"
+    t.string "insertion"
     t.index ["genre_id"], name: "index_muscles_on_genre_id"
+  end
+
+  create_table "note_images", force: :cascade do |t|
+    t.string "image_id", null: false
+    t.integer "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_note_images_on_note_id"
   end
 
   create_table "notes", force: :cascade do |t|
