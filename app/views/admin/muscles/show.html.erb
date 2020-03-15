@@ -1,1 +1,32 @@
-<h1>muscle/show</h1>
+<div class="container">
+  <div class="row">
+    <h1><%= @muscle.name %></h1>
+    <div class="col-xs-4">
+      <% @muscle.muscle_images.each do |image| %>
+      <p><%= attachment_image_tag image, :image, :fill, 250, 250 %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-8">
+      <table class="table muscle-show-table">
+        <tr>
+          <th>支配神経</th>
+          <td><%= @muscle.innervation %></td>
+        </tr>
+        <tr>
+          <th>作用</th>
+          <td><%= @muscle.action %></td>
+        </tr>
+        <tr>
+          <th>部位</th>
+          <td><%= @muscle.genre.name %></td>
+        </tr>
+        <tr>
+          <th>追加情報</th>
+          <td><%= @muscle.information %></td>
+        </tr>
+      </table>
+      <%= link_to "編集する", edit_admin_muscle_path, class: "btn btn-success" %>
+      <%= link_to "削除する", admin_muscle_path(@muscle.id), method: :delete, data:{confirm: "この筋肉を削除しますか？"}, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
