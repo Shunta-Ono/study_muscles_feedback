@@ -2,7 +2,7 @@
   <div class="row">
     <h1>部位一覧</h1>
       <% @genres.each do |genre| %>
-      <%= link_to muscles_path do %>
+      <%= link_to muscles_path(genre_id: genre.id) do %>
       <div class="genre-card">
         <%= attachment_image_tag genre, :image, :size => '250x250' %>
         <div class="genre-card-info text-center">
