@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_094221) do
+ActiveRecord::Schema.define(version: 2020_03_17_164027) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_03_15_094221) do
     t.string "action"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "origin"
+    t.string "insertion"
     t.index ["muscle_id"], name: "index_notes_on_muscle_id"
   end
 

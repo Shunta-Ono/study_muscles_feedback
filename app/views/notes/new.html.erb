@@ -1,2 +1,9 @@
 <h1>Notes#new</h1>
-<p>Find me in app/views/notes/new.html.erb</p>
+<%= form_for @book do |f| %>
+<%= f.text_field :title %>
+<%= f.text_field :name %>
+<%= f.text_field :origin %>
+<%= f.text_field :insertion %>
+<%= f.text_field :innervation %>
+<%= f.text_field :action %>
+<% end %>
