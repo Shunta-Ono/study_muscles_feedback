@@ -10,12 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
 //= require rails-ujs
+//= require summernote/summernote-bs4.min
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require_tree .
-//= require bootstrap
+
 $(document).on('turbolinks:load', function() {
   $(function() {
     $('#genre_image').on('change', function(e) {

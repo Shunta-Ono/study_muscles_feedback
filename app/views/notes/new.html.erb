@@ -13,5 +13,6 @@
 <%= f.label :action, '作用' %>
 <%= f.text_field :action %>
 <%= f.label :body, '内容' %>
-<%= f.text_area :body %>
+<%= f.text_area :body, 'data-provider': :summernote %>
+<%= f.submit '作成する' %>
 <% end %>
