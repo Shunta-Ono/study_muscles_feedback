@@ -5,6 +5,9 @@ class NotesController < ApplicationController
   end
 
   def create
+    @note = Note.new(note_params)
+    @note.save
+    redirect_to notes_path
   end
 
   def index
@@ -21,5 +24,11 @@ class NotesController < ApplicationController
 
   def destroy
   end
+
+private
+
+def note_params
+  params.require(:note).permit(:title, :name, :origin, :insertion, :innervation, :action, :body)
+end
 
 end
