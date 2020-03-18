@@ -6,5 +6,6 @@ class MusclesController < ApplicationController
 
   def show
     @muscle = Muscle.find{params[:id]}
+    @note = Note.new
   end
 end
