@@ -33,3 +33,28 @@
   font-size: 20px;
   color: red;
 }
+
+.top-slide-image1 {
+background-image: url(test1.jpg);
+}
+.top-slide-image2 {
+background-image: url(test2.jpg);
+}
+.top-slide-image3 {
+background-image: url(test3.jpg);
+}
+.top-slide-image4 {
+background-image: url(test4.jpg);
+}
+.top-slide-image5 {
+background-image: url(test5.jpg);
+}
+
+#top-slide-container {
+  height: 500px;
+}
+
+.about-information {
+  padding-top: 100px;
+  height: 500px;
+}
