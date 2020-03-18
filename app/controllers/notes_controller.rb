@@ -11,6 +11,7 @@ class NotesController < ApplicationController
   end
 
   def index
+    @notes = Note.all
   end
 
   def show
