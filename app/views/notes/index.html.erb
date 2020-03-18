@@ -2,5 +2,5 @@
 <% @notes.each do |note| %>
 <%= note.title %>
 <%= note.name %>
-<%= note.body %>
+<%= note.body.html_safe %>
 <% end %>

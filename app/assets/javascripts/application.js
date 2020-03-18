@@ -13,13 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require rails-ujs
 //= require summernote/summernote-bs4.min
+//= require summernote-init
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
+
   $(function() {
     $('#genre_image').on('change', function(e) {
       var file = e.target.files[0];
@@ -31,7 +30,6 @@ $(document).on('turbolinks:load', function() {
       fileReader.readAsDataURL(file);
     });
   });
-});
 
 $(document).ready(function () {
   $("#theTarget").skippr({

@@ -2,7 +2,8 @@ class Admin::MusclesController < Admin::BaseController
 
   def new
     @muscle = Muscle.new
-    @muscle.muscle_images.build
+    # @muscle.muscle_images.build
+    2.times { @muscle.muscle_images.build }
   end
 
   def create
@@ -43,7 +44,7 @@ class Admin::MusclesController < Admin::BaseController
   private
 
   def muscle_params
-    params.require(:muscle).permit(:genre_id, :name, :innervation, :action, :origin, :insertion, :information, muscle_images_attributes:[:image])
+    params.require(:muscle).permit(:genre_id, :name, :innervation, :action, :origin, :insertion, :information, muscle_images_attributes:[:image, :_destroy, :id])
   end
 
 end
