@@ -2,7 +2,7 @@ class Muscle < ApplicationRecord
   belongs_to :genre
   has_many :muscle_images, dependent: :destroy
 
-  accepts_attachments_for :muscle_images, attachment: :image
+  accepts_attachments_for :muscle_images, attachment: :images
   accepts_nested_attributes_for :muscle_images, allow_destroy: true
 
   validates :name, presence: true

@@ -2,7 +2,6 @@ class Admin::MusclesController < Admin::BaseController
 
   def new
     @muscle = Muscle.new
-    # @muscle.muscle_images.build
     2.times { @muscle.muscle_images.build }
   end
 
