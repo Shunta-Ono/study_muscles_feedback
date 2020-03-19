@@ -27,8 +27,11 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    @note.update(note_params)
-    redirect_to user_path(current_user.id)
+    if @note.update(note_params)
+      redirect_to user_path(current_user.id), notice: 'ノートを編集しました'
+    else
+      render 'edit'
+    end
   end
 
   def destroy

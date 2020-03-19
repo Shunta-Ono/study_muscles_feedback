@@ -2,6 +2,7 @@
   <div class="row">
     <h2>ノートを編集する</h2>
     <%= form_for (@note) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">
       <%= f.label :tile, 'タイトル' %>
       <%= f.text_field :title, class: "form-control" %>
