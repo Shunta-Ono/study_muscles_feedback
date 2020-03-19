@@ -1,2 +1,70 @@
-<h1>Muscles#show</h1>
-<p>Find me in app/views/muscles/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1><%= @muscle.name %></h1>
+    <div class="col-xs-4">
+      <% @muscle.muscle_images.each do |image| %>
+      <p><%= attachment_image_tag image, :image, :fill, 250, 250 %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-8">
+      <table class="table muscle-show-table">
+        <tr>
+          <th>起始</th>
+          <td><%= @muscle.origin %></td>
+        </tr>
+        <tr>
+          <th>停止</th>
+          <td><%= @muscle.insertion %></td>
+        </tr>
+        <tr>
+          <th>支配神経</th>
+          <td><%= @muscle.innervation %></td>
+        </tr>
+        <tr>
+          <th>作用</th>
+          <td><%= @muscle.action %></td>
+        </tr>
+        <tr>
+          <th>部位</th>
+          <td><%= @muscle.genre.name %></td>
+        </tr>
+        <tr>
+          <th>追加情報</th>
+          <td><%= @muscle.information %></td>
+        </tr>
+      </table>
+      <h2>ノートを書く</h2>
+    <%= form_for @note do |f| %>
+    <div class="form-group">
+      <%= f.label :tile, 'タイトル' %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name, '筋肉名' %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :origin, '起始' %>
+      <%= f.text_field :origin, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :insertion, '停止' %>
+      <%= f.text_field :insertion, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :innervation, '支配神経' %>
+      <%= f.text_field :innervation, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :action, '作用' %>
+      <%= f.text_field :action, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body, '内容' %>
+      <%= f.text_area :body, 'data-provider': :summernote %>
+    </div>
+    <%= f.submit '作成する', class: "btn btn-success" %>
+    <% end %>
+    </div>
+  </div>
+</div>

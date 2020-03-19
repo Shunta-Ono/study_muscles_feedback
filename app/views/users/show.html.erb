@@ -1,2 +1,24 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2>マイノート一覧</h2>
+    <%= link_to "ノートを書く", new_note_path, class: "btn btn-success" %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ノート名</th>
+          <th>筋肉名</th>
+          <th>作成日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.notes.each do |note| %>
+        <tr>
+          <td><%= link_to note.title, note_path(note.id) %></td>
+          <td><%= note.name %></td>
+          <td><%= note.created_at %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

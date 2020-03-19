@@ -1,2 +1,6 @@
-<h1>Notes#index</h1>
-<p>Find me in app/views/notes/index.html.erb</p>
+<h2>ノート一覧</h2>
+<% @notes.each do |note| %>
+<%= note.title %>
+<%= note.name %>
+<%= note.body.html_safe %>
+<% end %>

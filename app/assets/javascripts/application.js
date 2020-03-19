@@ -10,13 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
 //= require jquery
-//= require_tree .
+//= require jquery_ujs
 //= require bootstrap
-$(document).on('turbolinks:load', function() {
+//= require summernote/summernote-bs4.min
+//= require summernote-init
+//= require activestorage
+//= require_tree .
+
+
   $(function() {
     $('#genre_image').on('change', function(e) {
       var file = e.target.files[0];
@@ -28,7 +30,6 @@ $(document).on('turbolinks:load', function() {
       fileReader.readAsDataURL(file);
     });
   });
-});
 
 $(document).ready(function () {
   $("#theTarget").skippr({
