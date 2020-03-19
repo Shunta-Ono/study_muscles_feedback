@@ -8,10 +8,8 @@ class Admin::MusclesController < Admin::BaseController
   def create
     @muscle = Muscle.new(muscle_params)
     if @muscle.save
-      flash[:notice] = "新しい筋肉を作成しました"
-      redirect_to admin_muscles_path
+      redirect_to admin_muscles_path, notice:'新しい筋肉を作成しました'
     else
-      flash[:alert] = "筋肉の作成に失敗しました"
       render action: :new
     end
   end
@@ -30,8 +28,11 @@ class Admin::MusclesController < Admin::BaseController
 
   def update
     @muscle = Muscle.find(params[:id])
-    @muscle.update(muscle_params)
-    redirect_to admin_muscle_path(@muscle.id)
+    if @muscle.update(muscle_params)
+      redirect_to admin_muscle_path(@muscle.id), notice:'筋肉を編集しました'
+    else
+      render action: :edit
+    end
   end
 
   def destroy

@@ -3,7 +3,7 @@
     <h1>筋肉編集</h1>
     <div class="col-xs-4">
       <%= form_for [:admin, @muscle] do |f| %>
-
+      <%= render 'layouts/error_messages', model: f.object %>
       <%= f.fields_for "muscle_images" do |muscle_image_form, index| %>
       <p><%= muscle_image_form.label :muscle_images, '動作後の筋肉を選択してください' %><span class="input-required">※必須</span></p>
       <%= muscle_image_form.attachment_field :image %>
