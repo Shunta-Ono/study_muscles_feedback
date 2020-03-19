@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2>ノートを書く</h2>
-    <%= form_for(note) do |f| %>
+    <%= form_for(@note) do |f| %>
     <div class="form-group">
       <%= f.label :tile, 'タイトル' %>
       <%= f.text_field :title, class: "form-control" %>
