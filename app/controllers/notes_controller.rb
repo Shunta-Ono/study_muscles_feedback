@@ -6,8 +6,11 @@ class NotesController < ApplicationController
 
   def create
     @note = current_user.notes.build(note_params)
-    @note.save
-    redirect_to user_path(current_user.id)
+    if @note.save
+      redirect_to user_path(current_user.id), notice: 'ノートを作成しました'
+    else
+      render 'new'
+    end
   end
 
   def index
@@ -24,8 +27,11 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    @note.update(note_params)
-    redirect_to user_path(current_user.id)
+    if @note.update(note_params)
+      redirect_to user_path(current_user.id), notice: 'ノートを編集しました'
+    else
+      render 'edit'
+    end
   end
 
   def destroy

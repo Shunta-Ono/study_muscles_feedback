@@ -6,7 +6,10 @@ class Muscle < ApplicationRecord
   accepts_nested_attributes_for :muscle_images, allow_destroy: true
 
   validates :name, presence: true
+  validates :origin, presence: true
+  validates :insertion, presence: true
   validates :innervation, presence: true
   validates :action, presence: true
+  validates :information, length: { maximum: 140 }
   validates :genre_id, presence: true
 end
