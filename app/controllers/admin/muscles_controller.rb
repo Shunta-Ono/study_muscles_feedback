@@ -1,5 +1,6 @@
 class Admin::MusclesController < Admin::BaseController
   before_action :authenticate_admin!
+  before_action :set_muscle, only: [:show, :edit, :update, :destroy]
 
   def new
     @muscle = Muscle.new
@@ -20,15 +21,12 @@ class Admin::MusclesController < Admin::BaseController
   end
 
   def show
-    @muscle =Muscle.find(params[:id])
   end
 
   def edit
-    @muscle = Muscle.find(params[:id])
   end
 
   def update
-    @muscle = Muscle.find(params[:id])
     if @muscle.update(muscle_params)
       redirect_to admin_muscle_path(@muscle.id), notice:'筋肉を編集しました'
     else
@@ -37,12 +35,15 @@ class Admin::MusclesController < Admin::BaseController
   end
 
   def destroy
-    @muscle = Muscle.find(params[:id])
     @muscle.destroy
     redirect_to admin_muscles_path
   end
 
   private
+
+  def set_muscle
+    @muscle = Muscle.find(params[:id])
+  end
 
   def muscle_params
     params.require(:muscle).permit(:genre_id, :name, :innervation, :action, :origin, :insertion, :information, muscle_images_attributes:[:image, :_destroy, :id])
