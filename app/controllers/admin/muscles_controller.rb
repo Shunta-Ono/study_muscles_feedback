@@ -1,4 +1,5 @@
 class Admin::MusclesController < Admin::BaseController
+  before_action :authenticate_admin!
 
   def new
     @muscle = Muscle.new

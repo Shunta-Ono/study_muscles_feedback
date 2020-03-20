@@ -1,4 +1,5 @@
 class Admin::GenresController < Admin::BaseController
+  before_action :authenticate_admin!
 
   def new
     @genre = Genre.new
