@@ -1,5 +1,6 @@
 class Admin::GenresController < Admin::BaseController
   before_action :authenticate_admin!
+  before_action :set_genre, only: [:edit, :update, :destroy]
 
   def new
     @genre = Genre.new
@@ -23,11 +24,9 @@ class Admin::GenresController < Admin::BaseController
 
   def edit
     @genres = Genre.all
-    @genre = Genre.find(params[:id])
   end
 
   def update
-    @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
       flash[:notice] = "部位を編集しました。"
       redirect_to admin_genres_path
@@ -38,13 +37,17 @@ class Admin::GenresController < Admin::BaseController
   end
 
   def destroy
-    genre = Genre.find(params[:id])
-    genre.delete
+    @genre.delete
     flash[:alert] = "部位を削除しました。"
     redirect_to admin_genres_path
   end
 
   private
+
+  def set_genre
+    @genre = Genre.find(params[:id])
+  end
+
   def genre_params
     params.require(:genre).permit(:name, :image)
   end
