@@ -40,6 +40,10 @@ class NotesController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def search
+    @notes = Note.search(params[:search])
+  end
+
 private
 
   def set_note

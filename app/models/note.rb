@@ -9,4 +9,9 @@ class Note < ApplicationRecord
   validates :innervation, presence: true, length: { maximum: 30 }
   validates :action, presence: true, length: { maximum: 30 }
   validates :body, length: { maximum: 250 }
+
+  def self.search(search)
+    return Note.all unless search
+    Note.where(['name LIKE ?', "%#{search}%"])
+  end
 end
