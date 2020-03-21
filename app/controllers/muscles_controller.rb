@@ -8,4 +8,8 @@ class MusclesController < ApplicationController
     @muscle = Muscle.find(params[:id])
     @note = Note.new
   end
+
+  def search
+    @muscles = Muscle.search(params[:search])
+  end
 end

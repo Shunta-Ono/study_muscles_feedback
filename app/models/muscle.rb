@@ -12,4 +12,9 @@ class Muscle < ApplicationRecord
   validates :action, presence: true
   validates :information, length: { maximum: 140 }
   validates :genre_id, presence: true
+
+  def self.search(search)
+    return Muscle.all unless search
+    Muscle.where(['name LIKE ?', "%#{search}%"])
+  end
 end
