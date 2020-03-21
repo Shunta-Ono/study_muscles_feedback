@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @note = Note.new
@@ -21,6 +21,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @user = User.find(@note.user_id)
   end
 
   def edit

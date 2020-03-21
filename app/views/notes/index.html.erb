@@ -1,6 +1,23 @@
-<h2>ノート一覧</h2>
-<% @notes.each do |note| %>
-<%= note.title %>
-<%= note.name %>
-<%= note.body.html_safe %>
-<% end %>
+<div class="container">
+  <h2>ノート一覧</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ノート名</th>
+        <th>筋肉名</th>
+        <th>内容</th>
+        <th>作成日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @notes.each do |note| %>
+      <tr>
+        <td><%= link_to note.title, note_path(note.id) %></td>
+        <td><%= note.name %></td>
+        <td><%= note.body.html_safe %></td>
+        <td><%= note.created_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
