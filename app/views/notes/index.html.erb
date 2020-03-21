@@ -3,6 +3,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>作成者</th>
         <th>ノート名</th>
         <th>筋肉名</th>
         <th>内容</th>
@@ -12,6 +13,7 @@
     <tbody>
       <% @notes.each do |note| %>
       <tr>
+        <td><%= note.user.name %></td>
         <td><%= link_to note.title, note_path(note.id) %></td>
         <td><%= note.name %></td>
         <td><%= note.body.html_safe %></td>
