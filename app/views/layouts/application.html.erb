@@ -15,22 +15,36 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <%= image_tag '728176.jpg', :size => '50x60' %>
+            <%= image_tag '1085588.jpg', :size => '70x70' %>
+            <% if user_signed_in? %>
+            <%= "#{current_user.name}さんがログイン中" %>
+            <% end %>
           </div>
           <div class="collapse navbar-collapse navbar-right" id="navbarEexample1">
             <ul class="nav navbar-nav">
-              <%= "ようこそ#{current_user.name}さん" %>
-              <li><%= link_to "TOP", homes_top_path %></li>
-              <li><%= link_to "部位から探す", genres_path %></li>
-              <% if user_signed_in? %>
-                <li><%= link_to "MyNote", user_path(current_user.id) %></li>
-                <li><%= link_to "Note一覧", notes_path %></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to "新規登録", new_user_registration_path %></li>
-                <li><%= link_to "ログイン", new_user_session_path %></li>
-              <% end %>
-              <li><%= link_to "管理人はこちら", new_admin_session_path %></li>
+              <div id="sp-menu">
+                <h2>MENU</h2>
+                <ul>
+                  <li><%= link_to "TOP", homes_top_path %></li>
+                  <li><%= link_to "部位から探す", genres_path %></li>
+                  <% if user_signed_in? %>
+                  <li><%= link_to "MyNote", user_path(current_user.id) %></li>
+                  <li><%= link_to "Note一覧", notes_path %></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                  <% else %>
+                  <li><%= link_to "新規登録", new_user_registration_path %></li>
+                  <li><%= link_to "ログイン", new_user_session_path %></li>
+                  <% end %>
+                  <li><%= link_to "管理人はこちら", new_admin_session_path %></li>
+                </ul>
+              </div>
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
             </ul>
           </div>
         </div>

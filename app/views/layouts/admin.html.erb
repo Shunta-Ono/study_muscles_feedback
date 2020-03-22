@@ -14,21 +14,30 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <%= image_tag '728176.jpg', :size => '50x60' %>
+          <%= image_tag '1085588.jpg', :size => '70x70' %>
         </div>
         <div class="collapse navbar-collapse navbar-right" id="navbarEexample1">
-        <ul class="nav navbar-nav">
-        <% if admin_signed_in? %>
-          <li><%= link_to "TOP", homes_top_path %></li>
-          <li><%= link_to "部位一覧", admin_genres_path %></li>
-          <li><%= link_to "筋肉の作成", new_admin_muscle_path %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "ログイン", new_admin_session_path %></li>
-          <li><%= link_to "TOP", homes_top_path %></li>
-        <% end %>
-      </ul>
-      </div>
+          <ul class="nav navbar-nav">
+            <div id="sp-menu">
+              <h2>MENU</h2>
+              <ul>
+                <% if admin_signed_in? %>
+                <li><%= link_to "TOP", homes_top_path %></li>
+                <li><%= link_to "部位一覧", admin_genres_path %></li>
+                <li><%= link_to "筋肉の作成", new_admin_muscle_path %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div id="hm-icon">
+              <a class="menu-trigger" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+            </div>
+          </ul>
+        </div>
       </div>
     </nav>
   </header><!-- /header -->
