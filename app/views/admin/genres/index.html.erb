@@ -22,6 +22,7 @@
     <div class="col-xs-9">
       <h1>部位一覧</h1>
       <% @genres.each do |genre| %>
+      <%= link_to muscles_path(genre_id: genre.id) do %>
       <div class="genre-card">
         <%= attachment_image_tag genre, :image, :size => '250x250' %>
         <div class="genre-card-info text-center">
@@ -30,6 +31,7 @@
           <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>
         </div>
       </div>
+      <% end %>
       <% end %>
     </div>
   </div>

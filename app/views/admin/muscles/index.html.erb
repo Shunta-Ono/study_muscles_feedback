@@ -10,7 +10,6 @@
         <th>支配神経</th>
         <th>作用</th>
         <th>部位</th>
-        <th>追加情報</th>
       </tr>
     </thead>
     <tbody>
@@ -22,10 +21,12 @@
         <td><%= muscle.innervation %></td>
         <td><%= muscle.action %></td>
         <td><%= muscle.genre.name %></td>
-        <td><%= muscle.information %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <div class="paginate-area text-center">
+    <%= paginate @muscles %>
+  </div>
 
 </div>

@@ -17,7 +17,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.all
+    @notes = Note.page(params[:page]).per(7)
   end
 
   def show

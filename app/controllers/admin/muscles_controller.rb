@@ -10,14 +10,14 @@ class Admin::MusclesController < Admin::BaseController
   def create
     @muscle = Muscle.new(muscle_params)
     if @muscle.save
-      redirect_to admin_muscles_path, notice:'新しい筋肉を作成しました'
+      redirect_to admin_muscle_path(@muscle.id), notice:'新しい筋肉を作成しました'
     else
       render action: :new
     end
   end
 
   def index
-    @muscles = Muscle.all
+    @muscles = Muscle.page(params[:page]).per(10)
   end
 
   def show
