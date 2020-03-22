@@ -17,7 +17,7 @@ class Admin::MusclesController < Admin::BaseController
   end
 
   def index
-    @muscles = Muscle.page(params[:page]).per(10)
+    @muscles = Muscle.where(genre_id: params[:genre_id]).page(params[:page]).per(10)
   end
 
   def show
