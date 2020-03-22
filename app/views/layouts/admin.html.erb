@@ -21,6 +21,7 @@
         <% if admin_signed_in? %>
           <li><%= link_to "TOP", homes_top_path %></li>
           <li><%= link_to "部位一覧", admin_genres_path %></li>
+          <li><%= link_to "筋肉の作成", new_admin_muscle_path %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "ログイン", new_admin_session_path %></li>
