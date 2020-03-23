@@ -18,7 +18,6 @@
       <tr>
         <th>ノート名</th>
         <th>筋肉名</th>
-        <th>内容</th>
         <th>作成者</th>
         <th>作成日時</th>
       </tr>
@@ -28,7 +27,6 @@
       <tr>
         <td><%= link_to note.title, note_path(note.id) %></td>
         <td><%= note.name %></td>
-        <td><%= note.body.html_safe %></td>
         <td><%= note.user.name %></td>
         <td><%= l note.created_at, format: :short %></td>
       </tr>

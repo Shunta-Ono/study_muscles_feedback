@@ -1,39 +1,43 @@
 <div class="container">
   <div class="row">
-    <h2><%= @note.title %></h2>
-    <table class="table muscle-show-table">
-      <tr>
-        <th>筋肉名</th>
-        <td><%= @note.name %></td>
-      </tr>
-      <tr>
-        <th>起始</th>
-        <td><%= @note.origin %></td>
-      </tr>
-      <tr>
-        <th>停止</th>
-        <td><%= @note.insertion %></td>
-      </tr>
-      <tr>
-        <th>支配神経</th>
-        <td><%= @note.innervation %></td>
-      </tr>
-      <tr>
-        <th>作用</th>
-        <td><%= @note.action %></td>
-      </tr>
-      <tr>
-        <th>追加情報</th>
-        <td><%= @note.body.html_safe %></td>
-      </tr>
-      <tr>
-        <th>作成日時</th>
-        <td><%= l @note.created_at, format: :short %></td>
-      </tr>
-    </table>
-    <% if current_user.id == @user.id %>
-    <%= link_to "編集する", edit_note_path(@note.id), class: "btn btn-success" %>
-    <%= link_to "削除する", note_path(@note.id), method: :delete, data:{confirm: "このノートを削除しますか？"}, class: "btn btn-danger" %>
-    <% end %>
-  </div>
+    <div class="col-12">
+      <h2><%= @note.title %></h2>
+      <table class="table notes-show-table">
+        <tbody>
+          <tr>
+            <td>筋肉名</td>
+            <td><%= @note.name %></td>
+          </tr>
+          <tr>
+            <td>起始</td>
+            <td><%= @note.origin %></td>
+          </tr>
+          <tr>
+            <td>停止</td>
+            <td><%= @note.insertion %></td>
+          </tr>
+          <tr>
+            <td>支配神経</td>
+            <td><%= @note.innervation %></td>
+          </tr>
+          <tr>
+            <td>作用</td>
+            <td><%= @note.action %></td>
+          </tr>
+          <tr>
+            <td>追加情報</td>
+            <td><%= @note.body.html_safe %></td>
+          </tr>
+          <tr>
+            <td>作成日時</td>
+            <td><%= l @note.created_at, format: :short %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% if current_user.id == @user.id %>
+      <%= link_to "編集する", edit_note_path(@note.id), class: "btn btn-success" %>
+      <%= link_to "削除する", note_path(@note.id), method: :delete, data:{confirm: "このノートを削除しますか？"}, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+    </div>
 </div>
