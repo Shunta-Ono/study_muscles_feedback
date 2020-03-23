@@ -1,8 +1,14 @@
 <div class="container">
   <div class="row">
+    <div>
+      <%= link_to "←戻る", :back, class: "btn btn-success" %>
+    </div>
     <div class="col-12">
       <h2><%= @note.title %></h2>
       <%= l @note.created_at, format: :short %>
+      <span id="likes_buttons_<%= @note.id %>">
+        <%= render partial: 'likes/like', locals: {note: @note} %>
+      </span>
       <table class="table notes-show-table">
         <tbody>
           <tr>
