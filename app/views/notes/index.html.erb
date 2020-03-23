@@ -28,7 +28,7 @@
         <td><%= note.name %></td>
         <td><%= note.body.html_safe %></td>
         <td><%= note.user.name %></td>
-        <td><%= note.created_at %></td>
+        <td><%= l note.created_at, format: :short %></td>
         <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
       </tr>
       <% end %>

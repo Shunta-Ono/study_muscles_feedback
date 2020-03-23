@@ -16,7 +16,7 @@
         <tr>
           <td><%= link_to note.title, note_path(note.id) %></td>
           <td><%= note.name %></td>
-          <td><%= note.created_at %></td>
+          <td><%= l note.created_at, format: :short %></td>
         </tr>
         <% end %>
       </tbody>

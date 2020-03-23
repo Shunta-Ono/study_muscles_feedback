@@ -28,7 +28,7 @@
       </tr>
       <tr>
         <th>作成日時</th>
-        <td><%= @note.created_at %></td>
+        <td><%= l @note.created_at, format: :short %></td>
       </tr>
     </table>
     <% if current_user.id == @user.id %>

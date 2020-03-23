@@ -17,7 +17,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.page(params[:page]).per(7)
+    @notes = Note.page(params[:page]).per(7).reverse_order
   end
 
   def show
@@ -41,7 +41,7 @@ class NotesController < ApplicationController
   end
 
   def search
-    @notes = Note.search(params[:search])
+    @notes = Note.search(params[:search]).reverse_order
   end
 
 private
