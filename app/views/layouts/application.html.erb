@@ -22,28 +22,17 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="navbarEexample1">
             <ul class="nav navbar-nav">
-              <div id="sp-menu">
-                <h2>MENU</h2>
-                <ul>
-                  <li><%= link_to "TOP", homes_top_path %></li>
-                  <li><%= link_to "部位から探す", genres_path %></li>
-                  <% if user_signed_in? %>
-                  <li><%= link_to "MyNote", user_path(current_user.id) %></li>
-                  <li><%= link_to "Note一覧", notes_path %></li>
-                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-                  <% else %>
-                  <li><%= link_to "新規登録", new_user_registration_path %></li>
-                  <li><%= link_to "ログイン", new_user_session_path %></li>
-                  <% end %>
-                  <li><%= link_to "管理人はこちら", new_admin_session_path %></li>
-                </ul>
-              </div>
-              <div id="hm-icon">
-                <a class="menu-trigger" href="#">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </a>
+              <li><%= link_to "TOP", homes_top_path %></li>
+              <li><%= link_to "部位から探す", genres_path %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "MyNote", user_path(current_user.id) %></li>
+                <li><%= link_to "Note一覧", notes_path %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "新規登録", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+              <% end %>
+              <li><%= link_to "管理人はこちら", new_admin_session_path %></li>
               </div>
             </ul>
           </div>
