@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-12">
       <h2><%= @note.title %></h2>
+      <%= l @note.created_at, format: :short %>
       <table class="table notes-show-table">
         <tbody>
           <tr>
@@ -27,10 +28,6 @@
           <tr>
             <td>追加情報</td>
             <td><%= @note.body.html_safe %></td>
-          </tr>
-          <tr>
-            <td>作成日時</td>
-            <td><%= l @note.created_at, format: :short %></td>
           </tr>
         </tbody>
       </table>

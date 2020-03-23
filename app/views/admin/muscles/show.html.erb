@@ -5,7 +5,8 @@
     </div>
     <h1><%= @muscle.name %></h1>
     <div class="col-xs-4">
-      <% @muscle.muscle_images.each do |image| %>
+      <% @muscle.muscle_images.each.with_index do |image, index| %>
+      <p><%= muscle_action_label(index) %></p>
       <p><%= attachment_image_tag image, :image, :fill, 250, 250 %></p>
       <% end %>
     </div>
