@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
   resources :genres, only: [:index]
   resources :notes do
+    resource :likes, only: [:create, :destroy]
     get 'search', on: :collection
   end
 

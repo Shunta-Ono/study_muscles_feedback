@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if note.liked_by?(current_user) %>
+    <%= link_to note_likes_path(note.id), method: :delete, remote: true do %>
+      <i class="fa fa-heart" style="color: red;"></i>
+      <%= note.likes.count %>
+    <% end %>
+  <% else %>
+    <%= link_to note_likes_path(note.id), method: :post, remote: true do %>
+      <i class="fa fa-heart" style="color: gray;"></i>
+      <%= note.likes.count %>
+    <% end %>
+  <% end %>
+<% else %>
+  <i class="fa fa-heart" aria-hidden="true" style="color: gray;"></i><%= note.likes.count %>
+<% end %>
