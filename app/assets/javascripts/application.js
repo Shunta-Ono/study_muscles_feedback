@@ -20,12 +20,13 @@
 
 
   $(function() {
-    $('#genre_image').on('change', function(e) {
+    $('.previewble').on('change', function(e) {
+      var $input = $(this);
       var file = e.target.files[0];
       var fileReader = new FileReader();
       fileReader.onload = function() {
         var dataUri = this.result;
-        $('#file-preview').attr('src', dataUri);
+        $input.next(".preview").find("img").attr('src', dataUri);
       }
       fileReader.readAsDataURL(file);
     });

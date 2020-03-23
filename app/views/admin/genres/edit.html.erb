@@ -5,8 +5,10 @@
       <%= form_for [:admin, @genre] do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
       <%= f.label :image, "画像" %><span class="input-required">※必須</span>
-      <%= f.attachment_field :image %>
-      <%= attachment_image_tag @genre, :image, :size => '250x250', id: "file-preview" %>
+      <%= f.attachment_field :image, class: "previewble" %>
+      <div class="preview">
+        <%= attachment_image_tag @genre, :image, :size => '250x250' %>
+      </div>
       <%= f.label :name, "部位名" %><span class="input-required">※必須</span>
       <p><%= f.text_field :name %></p>
       <%= f.submit '変更する', class: "btn btn-success" %>

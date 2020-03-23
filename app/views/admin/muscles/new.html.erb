@@ -7,8 +7,10 @@
 
       <%= f.fields_for "muscle_images" do |muscle_image_form| %>
       <p><%= muscle_image_form.label :muscle_images, '動作前の筋肉を選択してください' %><span class="input-required">※必須</span></p>
-      <%= muscle_image_form.attachment_field :image %>
-      <%= image_tag 'sample_image.jpeg', id: "file-preview", :size => '250x250' %>
+      <%= muscle_image_form.attachment_field :image, class: "previewble" %>
+      <div class="preview">
+        <%= image_tag 'sample_image.jpeg', :size => '250x250' %>
+      </div>
       <% end %>
 
     </div>

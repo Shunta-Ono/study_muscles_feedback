@@ -11,8 +11,10 @@
       <h1>部位追加</h1>
         <%= form_for [:admin, @genre] do |f| %>
         <%= f.label :image, "画像" %><span class="input-required">※必須</span>
-        <%= f.attachment_field :image %>
-        <%= image_tag 'sample_image.jpeg', id: "file-preview", :size => '250x250' %>
+        <%= f.attachment_field :image, class: "previewble" %>
+        <div class="preview">
+          <%= image_tag 'sample_image.jpeg', :size => '250x250' %>
+        </div>
         <%= f.label :name, "部位名" %><span class="input-required">※必須</span>
         <p><%= f.text_field :name %></p>
         <%= f.submit '作成する', class: "btn btn-success"  %>

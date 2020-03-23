@@ -4,10 +4,14 @@
     <div class="col-xs-4">
       <%= form_for [:admin, @muscle] do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
-      <%= f.fields_for "muscle_images" do |muscle_image_form, index| %>
+      <% index = 0 %>
+      <%= f.fields_for "muscle_images" do |muscle_image_form| %>
       <p><%= muscle_image_form.label :muscle_images, '動作後の筋肉を選択してください' %><span class="input-required">※必須</span></p>
-      <%= muscle_image_form.attachment_field :image %>
-      <%= image_tag 'sample_image.jpeg', id: "file-preview", :size => '250x250' %>
+      <%= muscle_image_form.attachment_field :image, class: "previewble" %>
+      <div class="preview">
+        <%= attachment_image_tag @muscle.muscle_images[index], :image, :size => '250x250' %>
+      </div>
+      <% index += 1 %>
       <% end %>
     </div>
 
