@@ -17,7 +17,11 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.page(params[:page]).per(7).reverse_order
+    @notes = Note
+               .all
+               .with_user
+               .with_likes
+               .page(params[:page]).per(7).reverse_order
   end
 
   def show
@@ -58,7 +62,7 @@ private
   end
 
   def note_params
-    params.require(:note).permit(:user_id, :title, :name, :origin, :insertion, :innervation, :action, :body)
+    params.require(:note).permit(:user_id, :name, :title, :body)
   end
 
 end

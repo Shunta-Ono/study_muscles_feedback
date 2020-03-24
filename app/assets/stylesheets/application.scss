@@ -45,23 +45,20 @@
 }
 
 .top-slide-image1 {
-background-image: url(test1.jpg);
+background-image: url(1085588.jpg);
 }
 .top-slide-image2 {
-background-image: url(test2.jpg);
+background-image: url(1085589.jpg);
 }
 .top-slide-image3 {
-background-image: url(test3.jpg);
+background-image: url(1092659.jpg);
 }
 .top-slide-image4 {
-background-image: url(test4.jpg);
-}
-.top-slide-image5 {
-background-image: url(test5.jpg);
+background-image: url(1092658.jpg);
 }
 
 #top-slide-container {
-  height: 500px;
+  height: 600px;
 }
 
 .about-information {
@@ -77,6 +74,10 @@ background-image: url(test5.jpg);
 }
 .notes-show-table tbody tr > td:nth-of-type(1) {
   width: 20%;
+}
+
+.note-title-form {
+  width: 30%;
 }
 
 .btn-area {

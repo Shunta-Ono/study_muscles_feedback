@@ -3,8 +3,8 @@
     <h1>筋肉登録画面</h1>
     <div class="col-xs-4">
       <%= form_for [:admin, @muscle] do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
       <% index = 0 %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <%= f.fields_for "muscle_images" do |muscle_image_form| %>
       <p><%= muscle_image_form.label :muscle_images, select_muscle_image_label(index) %><span class="input-required">※必須</span></p>
       <%= muscle_image_form.attachment_field :image, class: "previewble" %>
@@ -13,7 +13,6 @@
       </div>
       <% index += 1 %>
       <% end %>
-
     </div>
 
     <div class="col-xs-8">

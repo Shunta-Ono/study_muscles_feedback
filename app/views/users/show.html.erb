@@ -17,6 +17,7 @@
           <td><%= link_to note.title, note_path(note.id) %></td>
           <td><%= note.name %></td>
           <td><%= l note.created_at, format: :short %></td>
+          <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
         </tr>
         <% end %>
       </tbody>

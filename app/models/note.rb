@@ -4,12 +4,11 @@ class Note < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 20 }
-  validates :name, presence: true, length: { maximum: 20 }
-  validates :origin, presence: true, length: { maximum: 20 }
-  validates :insertion, presence: true, length: { maximum: 20 }
-  validates :innervation, presence: true, length: { maximum: 30 }
-  validates :action, presence: true, length: { maximum: 30 }
-  validates :body, length: { maximum: 250 }
+  validates :name, presence: true
+  validates :body, presence: true, length: { maximum: 1000 }
+
+  scope :with_user, -> { includes(:user) }
+  scope :with_likes, -> { includes(:likes) }
 
   def self.search(search)
     return Note.all unless search

@@ -1,37 +1,29 @@
 <div class="container">
   <div class="row">
-    <h2>ノートを編集する</h2>
-    <%= form_for (@note) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-    <div class="form-group">
-      <%= f.label :tile, 'タイトル' %>
-      <%= f.text_field :title, class: "form-control" %>
+    <div>
+      <%= link_to "<<戻る", :back %>
     </div>
-    <div class="form-group">
-      <%= f.label :name, '筋肉名' %>
-      <%= f.text_field :name, class: "form-control" %>
+    <div class="col-xs-offset-1 col-xs-10">
+      <h2>ノートを編集する</h2>
+      <%= form_for (@note) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group">
+          <%= f.label :tile, 'タイトル' %>
+          <%= f.text_field :title, class: "form-control note-title-form" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name, '筋肉名' %>
+          <%= f.text_field :name, class: "form-control note-title-form" %>
+        </div>
+      <div class="form-group">
+        <%= f.label :body, '内容' %><span>
+        （語呂合わせや動作についてまとめましょう）</span>
+        <%= f.text_area :body, 'data-provider': :summernote %>
+      </div>
+      <div class="btn-area text-right">
+        <%= f.submit '変更する', class: "btn btn-success" %>
+      </div>
+      <% end %>
     </div>
-    <div class="form-group">
-      <%= f.label :origin, '起始' %>
-      <%= f.text_field :origin, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :insertion, '停止' %>
-      <%= f.text_field :insertion, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :innervation, '支配神経' %>
-      <%= f.text_field :innervation, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :action, '作用' %>
-      <%= f.text_field :action, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :body, '内容' %>
-      <%= f.text_area :body, 'data-provider': :summernote %>
-    </div>
-    <%= f.submit '変更する', class: "btn btn-success" %>
-    <% end %>
   </div>
 </div>
