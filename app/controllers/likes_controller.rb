@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+
   def create
     @note = Note.find(params[:note_id])
     like = current_user.likes.build(note_id: params[:note_id])

@@ -1,6 +1,6 @@
 module ApplicationHelper
   def muscle_action_label(num)
-    num.zero? ? "動作前" : "動作後"
+    num.zero? ? "※動作前" : "※動作後"
   end
 
   def select_muscle_image_label(num)
