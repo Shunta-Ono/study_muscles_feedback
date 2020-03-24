@@ -22,6 +22,11 @@ ja:
         insertion: 停止
         innervation: 支配神経
         action: 作用
+      note:
+        title: タイトル
+        name: 筋肉の名前
+        body: ノートの内容
+
   date:
     abbr_day_names:
     - 日
