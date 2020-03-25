@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @user.notes.each do |note| %>
+        <% @notes.each do |note| %>
         <tr>
           <td><%= link_to note.title, note_path(note.id) %></td>
           <td><%= note.name %></td>

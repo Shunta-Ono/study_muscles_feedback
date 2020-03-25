@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user
 
   def show
-    @notes = Note.all
-    @note = @user.notes
+    @notes = @user.notes.order(created_at: :desc)
   end
 
   private
