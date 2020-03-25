@@ -10,8 +10,10 @@
      <%= render partial: 'likes/like', locals: {note: @note} %>
    </span>
    <% if current_user.id == @user.id %>
-   <%= link_to "編集する", edit_note_path(@note.id), class: "btn btn-success" %>
+   <div class="text-right">
+     <%= link_to "編集する", edit_note_path(@note.id), class: "btn btn-success" %>
    <%= link_to "削除する", note_path(@note.id), method: :delete, data:{ confirm: "このノートを削除しますか？"}, class: "btn btn-danger" %>
+   </div>
    <% end %>
    <tr>
      <td>

@@ -19,18 +19,18 @@
 //= require_tree .
 
 
-  $(function() {
-    $('.previewble').on('change', function(e) {
-      var $input = $(this);
-      var file = e.target.files[0];
-      var fileReader = new FileReader();
-      fileReader.onload = function() {
-        var dataUri = this.result;
-        $input.next(".preview").find("img").attr('src', dataUri);
-      }
-      fileReader.readAsDataURL(file);
-    });
+$(function() {
+  $('.previewble').on('change', function(e) {
+    var $input = $(this);
+    var file = e.target.files[0];
+    var fileReader = new FileReader();
+    fileReader.onload = function() {
+      var dataUri = this.result;
+      $input.next(".preview").find("img").attr('src', dataUri);
+    }
+    fileReader.readAsDataURL(file);
   });
+});
 
 $(document).ready(function () {
   $("#theTarget").skippr({
@@ -54,7 +54,7 @@ $(document).ready(function () {
       keyboardOnAlways : true,
       // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
       hidePrevious : false
-  });
+    });
 });
 
 $(function() {
@@ -63,4 +63,18 @@ $(function() {
     $('#sp-menu').fadeToggle();
     return false;
   });
- });
+});
+
+$(function() {
+  // ①タブをクリックしたら発動
+  $('.tab li').click(function() {
+    // ②クリックされたタブの順番を変数に格納
+    var index = $('.tab li').index(this);
+    // ③クリック済みタブのデザインを設定したcssのクラスを一旦削除
+    $('.tab li').removeClass('active');
+    // ④クリックされたタブにクリック済みデザインを適用する
+    $(this).addClass('active');
+    // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
+    $('.area ul').removeClass('show').eq(index).addClass('show');
+  });
+});

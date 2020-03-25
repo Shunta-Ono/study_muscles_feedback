@@ -1,26 +1,80 @@
-<div class="container">
-  <div class="row">
-    <p id ="notice"><%= flash[:notice] %></p>
-    <h2>マイノート一覧</h2>
-    <%= link_to "ノートを書く", new_note_path, class: "btn btn-success" %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ノート名</th>
-          <th>筋肉名</th>
-          <th>作成日時</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @notes.each do |note| %>
-        <tr>
-          <td><%= link_to note.title, note_path(note.id) %></td>
-          <td><%= note.name %></td>
-          <td><%= l note.created_at, format: :short %></td>
-          <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
-        </tr>
+<p id ="notice"><%= flash[:notice] %></p>
+<ul class="tab clearfix">
+  <li class="active">マイノート</li>
+  <li>ブックマーク</li>
+  <li>ノートを書く</li>
+</ul>
+<div class="area container">
+  <ul class="show">
+    <li>
+      <h2>マイノート一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ノート名</th>
+            <th>筋肉名</th>
+            <th>作成日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @notes.each do |note| %>
+          <tr>
+            <td><%= link_to note.title, note_path(note.id) %></td>
+            <td><%= note.name %></td>
+            <td><%= l note.created_at, format: :short %></td>
+            <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <h2>ブックマーク一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ノート名</th>
+            <th>筋肉名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @likes.each do |like| %>
+          <tr>
+            <% note = Note.find_by(id: like.note_id) %>
+            <td><%= link_to note.title, note_path(note.id) %></td>
+            <td><%= note.name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <div class="col-xs-offset-1 col-xs-10">
+        <h2>ノートを書く</h2>
+        <%= form_for(@note) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group">
+          <%= f.label :tile, 'タイトル' %><span class="input-required">※必須</span>
+          <%= f.text_field :title, class: "form-control note-title-form" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name, '筋肉名' %><span class="input-required">※必須</span>
+          <%= f.text_field :name, class: "form-control note-title-form" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body, '内容' %><span>
+          （語呂合わせや動作についてまとめましょう）</span>
+          <%= f.text_area :body, 'data-provider': :summernote %>
+        </div>
+        <div class="btn-area text-right">
+          <%= f.submit '作成する', class: "btn btn-success" %>
+        </div>
         <% end %>
-      </tbody>
-    </table>
-  </div>
+      </div>
+    </li>
+  </ul>
 </div>

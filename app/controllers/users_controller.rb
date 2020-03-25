@@ -3,7 +3,10 @@ class UsersController < ApplicationController
   before_action :correct_user
 
   def show
+    @note = Note.new
     @notes = @user.notes.order(created_at: :desc)
+    @user = User.find_by(id: params[:id])
+    @likes = Like.where(user_id: @user.id)
   end
 
   private
