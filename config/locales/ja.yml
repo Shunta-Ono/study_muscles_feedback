@@ -1,5 +1,12 @@
 ---
 ja:
+  views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'
   activerecord:
     errors:
       messages:
@@ -26,6 +33,9 @@ ja:
         title: タイトル
         name: 筋肉の名前
         body: ノートの内容
+      genre:
+        image: 画像
+        name: 部位名
 
   date:
     abbr_day_names:

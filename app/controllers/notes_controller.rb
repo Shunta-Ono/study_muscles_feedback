@@ -41,7 +41,7 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), notice: 'ノートを削除しました'
   end
 
   def search

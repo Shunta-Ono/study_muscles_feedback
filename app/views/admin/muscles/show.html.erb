@@ -3,6 +3,7 @@
     <div class="notice-message">
       <%= flash[:notice] %>
     </div>
+    <%= link_to "<<戻る", :back %>
     <h1><%= @muscle.name %></h1>
     <div class="col-xs-4">
       <% @muscle.muscle_images.each.with_index do |image, index| %>
@@ -37,8 +38,10 @@
           <td><%= @muscle.information %></td>
         </tr>
       </table>
-      <%= link_to "編集する", edit_admin_muscle_path, class: "btn btn-success" %>
-      <%= link_to "削除する", admin_muscle_path(@muscle.id), method: :delete, data:{confirm: "この筋肉を削除しますか？"}, class: "btn btn-danger" %>
+      <div class="text-right">
+        <%= link_to "編集する", edit_admin_muscle_path, class: "btn btn-success" %>
+        <%= link_to "削除する", admin_muscle_path(@muscle.id), method: :delete, data:{confirm: "この筋肉を削除しますか？"}, class: "btn btn-danger" %>
+      </div>
     </div>
   </div>
 </div>

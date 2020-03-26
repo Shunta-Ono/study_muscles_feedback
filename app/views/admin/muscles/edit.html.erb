@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="row">
+  <div class="row row-contents-margin-bottom">
+    <%= link_to "<<戻る", :back %>
     <h1>筋肉編集</h1>
     <div class="col-xs-4">
       <%= form_for [:admin, @muscle] do |f| %>
@@ -44,7 +45,9 @@
         <%= f.label :information, '追加情報' %>
         <p><%= f.text_area :information, class: 'form-control input-lg' %></p>
       </div>
+      <div class="text-right">
         <%= f.submit '変更する', class: "btn btn-success" %>
+      </div>
     </div>
     <% end %>
   </div>

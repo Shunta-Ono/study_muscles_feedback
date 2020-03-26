@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @note = Note.new
-    @notes = @user.notes.order(created_at: :desc)
+    @notes = @user.notes.page(params[:page]).per(7).order('created_at DESC')
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: @user.id)
   end

@@ -1,11 +1,11 @@
 class Note < ApplicationRecord
   has_many :note_images, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :name, presence: true
-  validates :body, presence: true, length: { maximum: 1000 }
+  validates :body, presence: true
 
   scope :with_user, -> { includes(:user) }
   scope :with_likes, -> { includes(:likes) }

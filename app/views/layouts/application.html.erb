@@ -15,7 +15,7 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <%= image_tag 'muscle-icon.png', :size => '100x100' %>
+            <%= link_to image_tag('muscle-icon.png', :size => '100x100'), root_path %>
             <% if user_signed_in? %>
             <%= "#{current_user.name}さんがログイン中" %>
             <% end %>
