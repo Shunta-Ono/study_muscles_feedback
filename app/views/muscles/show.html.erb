@@ -4,7 +4,9 @@
       <%= link_to "<<戻る", :back %>
     </div>
     <div class="text-center">
-      <h1 class="note-muscle-name"><%= @muscle.name %></h1>
+      <div class="heading-title">
+        <h1 class="heading-style"><%= @muscle.name %></h1>
+      </div>
       <% @muscle.muscle_images.each.with_index do |image,index| %>
       <div class="muscle-aciton-card">
         <h4><%= muscle_action_label(index) %></h4>
@@ -39,29 +41,11 @@
           <td><%= @muscle.information %></td>
         </tr>
       </table>
-    </div>
-    <div class="row">
-      <div class="col-xs-offset-1 col-xs-10">
-        <h2>ノートを書く</h2>
-        <%= form_for @note do |f| %>
-        <div class="form-group">
-          <%= f.label :tile, 'タイトル' %><span class="input-required">※必須</span>
-          <%= f.text_field :title, class: "form-control note-title-form" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :name, '筋肉名を入力' %><span class="input-required">※必須</span>
-          <%= f.text_field :name, class: "form-control note-title-form" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :body, '内容' %><span>
-          （語呂合わせや動作についてまとめましょう）</span>
-          <%= f.text_area :body, 'data-provider': :summernote %>
-        </div>
-        <div class="btn-area text-right">
-          <%= f.submit '作成する', class: "btn btn-success" %>
-        </div>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">ノートを書く</h2>
+        <h3>Writing Note</h3>
       </div>
+      <%= render partial: 'notes/note_new', locals: {note: @note} %>
     </div>
-    <% end %>
   </div>
 </div>

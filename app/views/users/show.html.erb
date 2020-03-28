@@ -1,26 +1,70 @@
-<div class="container">
-  <div class="row">
-    <p id ="notice"><%= flash[:notice] %></p>
-    <h2>マイノート一覧</h2>
-    <%= link_to "ノートを書く", new_note_path, class: "btn btn-success" %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ノート名</th>
-          <th>筋肉名</th>
-          <th>作成日時</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @notes.each do |note| %>
-        <tr>
-          <td><%= link_to note.title, note_path(note.id) %></td>
-          <td><%= note.name %></td>
-          <td><%= l note.created_at, format: :short %></td>
-          <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<ul class="tab clearfix">
+  <li class="active">マイノート</li>
+  <li>ブックマーク</li>
+  <li>ノートを書く</li>
+</ul>
+<div class="area container">
+  <ul class="show">
+    <li text>
+      <p id ="notice"><%= flash[:notice] %></p>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">マイノート一覧</h2>
+        <h3>My Note</h3>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ノート名</th>
+            <th>筋肉名</th>
+            <th>作成日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @notes.each do |note| %>
+          <tr>
+            <td><%= link_to note.title, note_path(note.id) %></td>
+            <td><%= note.name %></td>
+            <td><%= l note.created_at, format: :short %></td>
+            <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @notes %>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">ブックマーク一覧</h2>
+        <h3>Book Mark</h3>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ノート名</th>
+            <th>筋肉名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @likes.each do |like| %>
+          <tr>
+            <% note = Note.find_by(id: like.note_id) %>
+            <td><%= link_to note.title, note_path(note.id) %></td>
+            <td><%= note.name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">ノートを書く</h2>
+        <h3>Writing Note</h3>
+      </div>
+      <%= render partial: 'notes/note_new', locals: {note: @note} %>
+    </li>
+  </ul>
 </div>

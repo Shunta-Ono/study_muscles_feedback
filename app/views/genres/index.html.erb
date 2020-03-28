@@ -1,24 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-4">
-      <h2>部位一覧</h2>
-    </div>
-    <div class="col-xs-offset-5 col-xs-3">
+    <div class="search-form-content text-right">
       <%= form_tag(search_muscles_path, :method => 'get' ) do %>
       <%= text_field_tag :search, '', placeholder: "筋肉名を入力" %>
       <%= submit_tag '検索する', :name => nil, class: "btn btn-primary" %>
       <% end %>
     </div>
-  </div>
-  <% @genres.each do |genre| %>
-  <%= link_to muscles_path(genre_id: genre.id) do %>
-  <div class="genre-card">
-    <%= attachment_image_tag genre, :image, :size => '250x250' %>
-    <div class="genre-card-info text-center">
-      <p class="genre-card-name"><%= "部位：#{genre.name}" %></p>
+    <div class="text-center">
+      <h2 class="heading-style">部位一覧</h2>
+      <h3>Part Muscle</h3>
     </div>
   </div>
-  <% end %>
-  <% end %>
+  <div class="row">
+    <div class="genre-card-content text-center">
+      <% @genres.each do |genre| %>
+      <%= link_to muscles_path(genre_id: genre.id) do %>
+      <div class="genre-card">
+        <div class="genre-card-title">
+          <p class="genre-card-muscle-name"><%= "#{genre.name}の筋肉" %></p>
+        </div>
+        <%= attachment_image_tag genre, :image, :size => '250x250' %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 

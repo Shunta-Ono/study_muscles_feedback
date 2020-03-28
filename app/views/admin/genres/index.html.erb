@@ -9,32 +9,36 @@
         <%= flash[:alert] %>
       </div>
       <h1>部位追加</h1>
-        <%= form_for [:admin, @genre] do |f| %>
-        <%= f.label :image, "画像" %><span class="input-required">※必須</span>
-        <%= f.attachment_field :image, class: "previewble" %>
-        <div class="preview">
-          <%= image_tag 'sample_image.jpeg', :size => '250x250' %>
-        </div>
-        <%= f.label :name, "部位名" %><span class="input-required">※必須</span>
-        <p><%= f.text_field :name %></p>
-        <%= f.submit '作成する', class: "btn btn-success"  %>
-        <% end %>
+      <%= form_for [:admin, @genre] do |f| %>
+      <%= f.label :image, "画像" %><span class="input-required">※必須</span>
+      <%= f.attachment_field :image, class: "previewble" %>
+      <div class="preview">
+        <%= image_tag 'sample_image.jpeg', :size => '250x250' %>
+      </div>
+      <p><%= f.label :name, "部位名" %><span class="input-required">※必須</span></p>
+      <%= f.text_field :name %>
+      <%= f.submit '作成する', class: "btn btn-success"  %>
+      <% end %>
     </div>
 
-    <div class="col-xs-9">
-      <h1>部位一覧</h1>
-      <% @genres.each do |genre| %>
-      <%= link_to admin_muscles_path(genre_id: genre.id) do %>
-      <div class="genre-card">
-        <%= attachment_image_tag genre, :image, :size => '250x250' %>
-        <div class="genre-card-info text-center">
-          <p class="genre-card-name"><%= "部位：#{genre.name}" %></p>
-          <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
-          <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>
-        </div>
+    <div class="col-xs-9 text-center">
+      <div class="genre-heading">
+        <h1>部位一覧</h1>
       </div>
-      <% end %>
-      <% end %>
+      <div class="admin-genre-card-content">
+        <% @genres.each do |genre| %>
+        <%= link_to admin_muscles_path(genre_id: genre.id) do %>
+        <div class="genre-card">
+          <p class="genre-card-muscle-name"><%= "部位：#{genre.name}" %></p>
+          <%= attachment_image_tag genre, :image, :size => '250x250' %>
+          <div class="genre-card-edit">
+            <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
+            <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

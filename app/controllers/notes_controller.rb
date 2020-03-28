@@ -21,7 +21,7 @@ class NotesController < ApplicationController
                .all
                .with_user
                .with_likes
-               .page(params[:page]).per(7).reverse_order
+               .page(params[:page]).per(10).reverse_order
   end
 
   def show
@@ -41,7 +41,7 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), notice: 'ノートを削除しました'
   end
 
   def search

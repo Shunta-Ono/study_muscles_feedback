@@ -36,7 +36,7 @@ class Admin::MusclesController < Admin::BaseController
 
   def destroy
     @muscle.destroy
-    redirect_to admin_muscles_path
+    redirect_to admin_genres_path, alert:'筋肉を削除しました'
   end
 
   private

@@ -1,6 +1,9 @@
 <div class="container">
+  <%= link_to "<<戻る", :back %>
   <h1>筋肉一覧</h1>
-  <%= link_to "筋肉を追加する", new_admin_muscle_path, class: "btn btn-success" %>
+  <div class="new-muscle-btn text-right">
+    <%= link_to "筋肉を追加する", new_admin_muscle_path, class: "btn btn-success" %>
+  </div>
   <table class="table muscle-index-table">
     <thead>
       <tr>
