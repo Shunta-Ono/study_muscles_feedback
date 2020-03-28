@@ -1,7 +1,0 @@
-<h1>部位追加画面</h1>
-<%= form_for [:admin, @genre] do |f| %>
-<%= f.attachment_field :image %>
-<%= f.label :name, "部位名" %>
-<%= f.text_field :name %>
-<%= f.submit '作成' %>
-<% end %>

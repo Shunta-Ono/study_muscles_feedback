@@ -1,29 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div>
-      <%= link_to "<<戻る", :back %>
-    </div>
-    <div class="col-xs-offset-1 col-xs-10">
-      <h2>ノートを書く</h2>
-      <%= form_for(@note) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-      <div class="form-group form-width">
-        <%= f.label :tile, 'タイトル' %><span class="input-required">※必須</span>
-        <%= f.text_field :title, class: "form-control note-title-form" %>
-      </div>
-      <div class="form-group form-width">
-        <%= f.label :name, '筋肉名' %><span class="input-required">※必須</span>
-        <%= f.text_field :name, class: "form-control note-title-form" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :body, '内容' %><span class="input-required">※必須</span><span>
-        （語呂合わせや動作についてまとめましょう）</span>
-        <%= f.text_area :body, 'data-provider': :summernote %>
-      </div>
-      <div class="btn-area text-right">
-        <%= f.submit '作成する', class: "btn btn-success" %>
-      </div>
-      <% end %>
-    </div>
+<div class="col-xs-offset-1 col-xs-10">
+  <%= form_for(@note) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <div class="form-group form-width">
+    <%= f.label :tile, 'タイトル' %><span class="input-required">※必須</span>
+    <%= f.text_field :title, class: "form-control note-title-form" %>
   </div>
+  <div class="form-group form-width">
+    <%= f.label :name, '筋肉名' %><span class="input-required">※必須</span>
+    <%= f.text_field :name, class: "form-control note-title-form" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, '内容' %><span class="input-required">※必須</span><span>
+    （語呂合わせや動作についてまとめましょう）</span>
+    <%= f.text_area :body, 'data-provider': :summernote %>
+  </div>
+  <div class="btn-area text-right">
+    <%= f.submit '作成する', class: "btn btn-success" %>
+  </div>
+  <% end %>
 </div>
