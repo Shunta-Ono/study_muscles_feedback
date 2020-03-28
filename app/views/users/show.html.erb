@@ -5,9 +5,12 @@
 </ul>
 <div class="area container">
   <ul class="show">
-    <li>
+    <li text>
       <p id ="notice"><%= flash[:notice] %></p>
-      <h2>マイノート一覧</h2>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">マイノート一覧</h2>
+        <h3>My Note</h3>
+      </div>
       <table class="table">
         <thead>
           <tr>
@@ -32,7 +35,10 @@
   </ul>
   <ul>
     <li>
-      <h2>ブックマーク一覧</h2>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">ブックマーク一覧</h2>
+        <h3>Book Mark</h3>
+      </div>
       <table class="table">
         <thead>
           <tr>
@@ -54,15 +60,18 @@
   </ul>
   <ul>
     <li>
+      <div class="heading-title text-center">
+        <h2 class="heading-style">ノートを書く</h2>
+        <h3>Writing Note</h3>
+      </div>
       <div class="col-xs-offset-1 col-xs-10">
-        <h2>ノートを書く</h2>
         <%= form_for(@note) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
-        <div class="form-group">
+        <div class="form-group form-width">
           <%= f.label :tile, 'タイトル' %><span class="input-required">※必須</span>
           <%= f.text_field :title, class: "form-control note-title-form" %>
         </div>
-        <div class="form-group">
+        <div class="form-group form-width">
           <%= f.label :name, '筋肉名' %><span class="input-required">※必須</span>
           <%= f.text_field :name, class: "form-control note-title-form" %>
         </div>

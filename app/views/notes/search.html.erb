@@ -3,14 +3,15 @@
     <div>
       <%= link_to "<<戻る", :back %>
     </div>
-    <div class="col-xs-4">
-      <h2>ノート一覧</h2>
-    </div>
-    <div class="col-xs-offset-5 col-xs-3">
+    <div class="text-right">
       <%= form_tag(search_notes_path, :method => 'get' ) do %>
       <%= text_field_tag :search, '', placeholder: "筋肉名を入力" %>
       <%= submit_tag '検索する', :name => nil, class: "btn btn-primary" %>
       <% end %>
+    </div>
+    <div class="heading-title text-center">
+      <h2 class="heading-style">ノート一覧</h2>
+      <h3>Note List</h3>
     </div>
   </div>
   <% if @notes.empty? %>

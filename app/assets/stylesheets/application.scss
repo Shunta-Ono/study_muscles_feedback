@@ -72,11 +72,18 @@ background-image: url(1092658.jpg);
     word-break: break-all;
   }
 }
-.notes-show-table tbody tr > td:nth-of-type(1) {
-  width: 20%;
+
+.heading-style {
+  color: #2e8b57;
+  font-weight: bold;
 }
 
-.note-title-form {
+.heading-title {
+  margin: 50px 0;
+}
+
+.form-width {
+  margin: 30px 0;
   width: 30%;
 }
 

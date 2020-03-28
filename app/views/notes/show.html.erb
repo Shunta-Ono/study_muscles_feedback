@@ -4,7 +4,9 @@
  </div>
  <div class="row row-contents-margin-bottom">
   <div class="col-xs-offset-1 col-xs-10">
-    <h2><%= @note.title %></h2>
+    <h2 class="heading-style">
+      <%= @note.title %>
+    </h2>
    <%= l @note.created_at, format: :short %>
    <span id="likes_buttons_<%= @note.id %>">
      <%= render partial: 'likes/like', locals: {note: @note} %>
