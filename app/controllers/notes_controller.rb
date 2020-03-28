@@ -21,7 +21,7 @@ class NotesController < ApplicationController
                .all
                .with_user
                .with_likes
-               .page(params[:page]).per(7).reverse_order
+               .page(params[:page]).per(10).reverse_order
   end
 
   def show
