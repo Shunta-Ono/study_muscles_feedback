@@ -37,7 +37,7 @@ class Admin::GenresController < Admin::BaseController
   end
 
   def destroy
-    @genre.delete
+    @genre.destroy
     flash[:alert] = "部位を削除しました。"
     redirect_to admin_genres_path
   end
