@@ -13,7 +13,7 @@
       <%= f.label :image, "画像" %><span class="input-required">※必須</span>
       <%= f.attachment_field :image, class: "previewble" %>
       <div class="preview">
-        <%= image_tag 'sample_image.jpeg', :size => '250x250' %>
+        <%= image_tag 'sample_image.jpg', :size => '250x250' %>
       </div>
       <p><%= f.label :name, "部位名" %><span class="input-required">※必須</span></p>
       <%= f.text_field :name %>
