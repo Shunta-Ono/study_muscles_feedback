@@ -1,24 +1,50 @@
-# README
+# Study Muscles
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリの機能
+・ログイン機能
+・画像投稿機能
+・ノート投稿機能
+・ブックマーク機能
+・ブックマーク一覧表示機能
+・ページネーション機能
+・筋肉、ノート検索機能
+・マイページタブ分け機能
 
-Things you may want to cover:
+## 使用技術
+Ruby2.5.7
+Ruby on Rails5.2.4
 
-* Ruby version
+## 使用Gem
 
-* System dependencies
+devise(ログイン機能)
+refile(画像投稿機能)
+refile-mini-magick(画像調節機能)
+bootstrap-sass(bootstrapの使用)
+jquery-rails(jqueryの使用)
+kaminari(ページネーション機能)
+font-awesome-sass(fontawesomeの使用)
+summernote-rails(summer-note機能)
+pry-byebug(デバッグ)
 
-* Configuration
+## フロントエンド
+sass-rails(SASS)
+CSSフレームワーク(bootstrap-sass)
 
-* Database creation
+## 本番環境
+AWS(EC2,RDS,EIP)
 
-* Database initialization
+## データベース
+MySQL
 
-* How to run the test suite
+## WEBサーバ
+Nginx
 
-* Services (job queues, cache servers, search engines, etc.)
+# アプリの使用方法
+・筋肉の部位一覧からその部位の筋肉を探すことができます。
 
-* Deployment instructions
+<部位一覧機能>
 
-* ...
+
+
+
+
