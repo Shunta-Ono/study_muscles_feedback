@@ -11,8 +11,8 @@
 ・マイページタブ分け機能  
 
 ## 使用技術
-Ruby2.5.7
-Ruby on Rails5.2.4
+Ruby2.5.7  
+Ruby on Rails5.2.4  
 
 ## 使用Gem
 
