@@ -10,7 +10,7 @@ class Muscle < ApplicationRecord
   validates :insertion, presence: true
   validates :innervation, presence: true
   validates :action, presence: true
-  validates :information, length: { maximum: 250 }
+  validates :information, length: { maximum: 500 }
   validates :genre_id, presence: true
 
   def self.search(search)

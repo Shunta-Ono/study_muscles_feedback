@@ -1,4 +1,5 @@
 class MusclesController < ApplicationController
+
   def index
     @muscles = Muscle.where(genre_id: params[:genre_id])
     @genres = Genre.all

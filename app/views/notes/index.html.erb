@@ -2,11 +2,11 @@
   <div class="row">
     <div class="text-right">
       <%= form_tag(search_notes_path, :method => 'get' ) do %>
-      <%= text_field_tag :search, '', placeholder: "筋肉名を入力" %>
-      <%= submit_tag '検索する', :name => nil, class: "btn btn-primary" %>
-      <div class="writing-note-btn">
-        <%= link_to "ノートを書く", new_note_path, class: "btn btn-success" %>
-      </div>
+        <%= text_field_tag :search, '', placeholder: "筋肉名を入力" %>
+        <%= submit_tag '検索する', :name => nil, class: "btn btn-primary" %>
+        <div class="writing-note-btn">
+          <%= link_to "ノートを書く", new_note_path, class: "btn btn-success" %>
+        </div>
       <% end %>
     </div>
     <div class="heading-title text-center">
@@ -25,13 +25,13 @@
     </thead>
     <tbody>
       <% @notes.each do |note| %>
-      <tr>
-        <td><%= link_to note.title, note_path(note.id) %></td>
-        <td><%= note.name %></td>
-        <td><%= note.user.name %></td>
-        <td><%= l note.created_at, format: :short %></td>
-        <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
-      </tr>
+        <tr>
+          <td><%= link_to note.title, note_path(note.id) %></td>
+          <td><%= note.name %></td>
+          <td><%= note.user.name %></td>
+          <td><%= l note.created_at, format: :short %></td>
+          <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

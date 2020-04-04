@@ -28,8 +28,7 @@ class NotesController < ApplicationController
     @user = User.find(@note.user_id)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @note.update(note_params)
@@ -40,7 +39,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @note.destroy
+    @note.destroy!
     redirect_to user_path(current_user.id), notice: 'ノートを削除しました'
   end
 

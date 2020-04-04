@@ -21,11 +21,16 @@
 
 $(function() {
   $('.previewble').on('change', function(e) {
+    // previewbleクラスのファイルが変更されイベントが発火
     var $input = $(this);
+    // 変更された要素を$(this)で取得し、inputに代入
     var file = e.target.files[0];
+    // eの中に画像が入っている
     var fileReader = new FileReader();
     fileReader.onload = function() {
+      // fileleaderが読み込まれたイベントが発火
       var dataUri = this.result;
+      // srcでdataurlを表示
       $input.next(".preview").find("img").attr('src', dataUri);
     }
     fileReader.readAsDataURL(file);
@@ -58,23 +63,15 @@ $(document).ready(function () {
 });
 
 $(function() {
-  $('.menu-trigger').on('click', function() {
-    $(this).toggleClass('active');
-    $('#sp-menu').fadeToggle();
-    return false;
-  });
-});
-
-$(function() {
-  // ①タブをクリックしたら発動
+  // タブをクリックしたら発火
   $('.tab li').click(function() {
-    // ②クリックされたタブの順番を変数に格納
+    // クリックされたタブの順番を変数に格納
     var index = $('.tab li').index(this);
-    // ③クリック済みタブのデザインを設定したcssのクラスを一旦削除
+    // クリック済みタブのデザインを設定したcssのクラスを一旦削除
     $('.tab li').removeClass('active');
-    // ④クリックされたタブにクリック済みデザインを適用する
+    // クリックされたタブにクリック済みデザインを適用する
     $(this).addClass('active');
-    // ⑤コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
+    // コンテンツを一旦非表示にし、クリックされた順番のコンテンツのみを表示
     $('.area ul').removeClass('show').eq(index).addClass('show');
   });
 });

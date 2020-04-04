@@ -21,12 +21,12 @@
         </thead>
         <tbody>
           <% @notes.each do |note| %>
-          <tr>
-            <td><%= link_to note.title, note_path(note.id) %></td>
-            <td><%= note.name %></td>
-            <td><%= l note.created_at, format: :short %></td>
-            <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
-          </tr>
+            <tr>
+              <td><%= link_to note.title, note_path(note.id) %></td>
+              <td><%= note.name %></td>
+              <td><%= l note.created_at, format: :short %></td>
+              <td id="likes_buttons_<%= note.id %>"><%= render partial: 'likes/like', locals: {note: note} %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>
@@ -48,11 +48,11 @@
         </thead>
         <tbody>
           <% @likes.each do |like| %>
-          <tr>
-            <% note = Note.find_by(id: like.note_id) %>
-            <td><%= link_to note.title, note_path(note.id) %></td>
-            <td><%= note.name %></td>
-          </tr>
+            <tr>
+              <% note = Note.find_by(id: like.note_id) %>
+              <td><%= link_to note.title, note_path(note.id) %></td>
+              <td><%= note.name %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>

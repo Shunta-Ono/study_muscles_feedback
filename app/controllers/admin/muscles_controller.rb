@@ -20,11 +20,9 @@ class Admin::MusclesController < Admin::BaseController
     @muscles = Muscle.where(genre_id: params[:genre_id]).page(params[:page]).per(10)
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @muscle.update(muscle_params)

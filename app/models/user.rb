@@ -3,11 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :notes, dependent: :destroy
   has_many :likes
-
-  def notes
-    return Note.where(user_id: self.id)
-  end
 
 end

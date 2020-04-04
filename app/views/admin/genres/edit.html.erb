@@ -4,15 +4,15 @@
       <%= link_to "<<戻る", :back %>
       <h1>部位編集</h1>
       <%= form_for [:admin, @genre] do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-      <%= f.label :image, "画像" %><span class="input-required">※必須</span>
-      <%= f.attachment_field :image, class: "previewble" %>
-      <div class="preview">
-        <%= attachment_image_tag @genre, :image, :size => '250x250' %>
-      </div>
-      <p><%= f.label :name, "部位名" %><span class="input-required">※必須</span></p>
-      <%= f.text_field :name %>
-      <%= f.submit '変更する', class: "btn btn-success" %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <%= f.label :image, "画像" %><span class="input-required">※必須</span>
+        <%= f.attachment_field :image, class: "previewble" %>
+        <div class="preview">
+          <%= attachment_image_tag @genre, :image, :size => '250x250' %>
+        </div>
+        <p><%= f.label :name, "部位名" %><span class="input-required">※必須</span></p>
+        <%= f.text_field :name %>
+        <%= f.submit '変更する', class: "btn btn-success" %>
       <% end %>
     </div>
 
@@ -22,14 +22,14 @@
       </div>
       <div class="admin-genre-card-content">
         <% @genres.each do |genre| %>
-        <div class="genre-card">
-          <p class="genre-card-muscle-name"><%= "部位：#{genre.name}" %></p>
-          <%= attachment_image_tag genre, :image, :size => '250x250' %>
-          <div class="genre-card-edit">
-            <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
-            <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>
+          <div class="genre-card">
+            <p class="genre-card-muscle-name"><%= "部位：#{genre.name}" %></p>
+            <%= attachment_image_tag genre, :image, :size => '250x250' %>
+            <div class="genre-card-edit">
+              <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
+              <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>
+            </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
