@@ -3,7 +3,9 @@
     <div class="notice-message">
       <%= flash[:notice] %>
     </div>
-    <%= link_to "<<戻る", :back %>
+    <%= link_to :back do %>
+      <i class="fas fa-backward">戻る</i>
+    <% end %>
     <h1><%= @muscle.name %></h1>
     <div class="col-xs-4">
       <% @muscle.muscle_images.each.with_index do |image, index| %>

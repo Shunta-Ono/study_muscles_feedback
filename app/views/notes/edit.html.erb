@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div>
-      <%= link_to "<<戻る", :back %>
+      <%= link_to :back do %>
+        <i class="fas fa-backward">戻る</i>
+      <% end %>
     </div>
     <div class="heading-title text-center">
       <h2 class="heading-style">ノートを編集する</h2>

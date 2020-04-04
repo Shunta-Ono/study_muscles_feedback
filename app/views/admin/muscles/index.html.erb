@@ -1,5 +1,7 @@
 <div class="container">
-  <%= link_to "<<戻る", :back %>
+  <%= link_to :back do %>
+    <i class="fas fa-backward">戻る</i>
+  <% end %>
   <h1>筋肉一覧</h1>
   <div class="new-muscle-btn text-right">
     <%= link_to "筋肉を追加する", new_admin_muscle_path, class: "btn btn-success" %>
