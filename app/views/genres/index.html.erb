@@ -17,7 +17,7 @@
         <%= link_to muscles_path(genre_id: genre.id) do %>
           <div class="genre-card">
             <div class="genre-card-title">
-              <p class="genre-card-muscle-name"><%= "#{genre.name}の筋肉" %></p>
+              <p class="genre-card-muscle-name"><%= "#{genre.name}" %></p>
             </div>
             <%= attachment_image_tag genre, :image, :size => '250x250' %>
           </div>
