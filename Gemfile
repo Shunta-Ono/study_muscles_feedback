@@ -73,7 +73,3 @@ gem 'font-awesome-sass'
 gem 'summernote-rails'
 
 gem 'dotenv-rails'
-
-group :production do
-  gem 'mysql2'
-end
