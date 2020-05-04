@@ -8,7 +8,7 @@
         <%= f.label :image, "画像" %><span class="input-required">※必須</span>
         <%= f.attachment_field :image, class: "previewble" %>
         <div class="preview">
-          <%= attachment_image_tag @genre, :image, :size => '250x250' %>
+          <%= attachment_image_tag @genre, :image, :size => '250x400' %>
         </div>
         <p><%= f.label :name, "部位名" %><span class="input-required">※必須</span></p>
         <%= f.text_field :name %>
@@ -24,7 +24,7 @@
         <% @genres.each do |genre| %>
           <div class="genre-card">
             <p class="genre-card-muscle-name"><%= "部位：#{genre.name}" %></p>
-            <%= attachment_image_tag genre, :image, :size => '250x250' %>
+            <%= attachment_image_tag genre, :image, :size => '250x400' %>
             <div class="genre-card-edit">
               <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
               <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, data:{confirm: "この部位を削除しますか？"}, class: "btn btn-danger" %>

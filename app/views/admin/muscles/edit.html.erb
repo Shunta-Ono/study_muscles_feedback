@@ -12,7 +12,7 @@
           <p><%= muscle_image_form.label :muscle_images, select_muscle_image_label(index) %><span class="input-required">※必須</span></p>
           <%= muscle_image_form.attachment_field :image, class: "previewble" %>
           <div class="preview">
-            <%= attachment_image_tag @muscle.muscle_images[index], :image, :size => '250x250' %>
+            <%= attachment_image_tag @muscle.muscle_images[index], :image, :size => '250x400' %>
           </div>
           <% index += 1 %>
         <% end %>

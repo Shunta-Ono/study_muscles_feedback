@@ -12,7 +12,7 @@
       <% @muscle.muscle_images.each.with_index do |image,index| %>
         <div class="muscle-aciton-card">
           <h4><%= muscle_action_label(index) %></h4>
-          <%= attachment_image_tag image, :image, :fill, 250, 250 %>
+          <%= attachment_image_tag image, :image, :fill, 250, 400 %>
         </div>
       <% end %>
     </div>
