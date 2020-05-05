@@ -1,5 +1,7 @@
 {
   "name": "study-muscle",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "scrollreveal": "^4.0.6"
+  }
 }

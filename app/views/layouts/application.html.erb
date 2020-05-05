@@ -11,38 +11,35 @@
 
 <body>
   <header>
-    <header>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <%= link_to image_tag('muscle-icon.png', :size => '100x100'), root_path %>
-            <% if user_signed_in? %>
-            <span class="rogin-user-name">
-              <%= "#{current_user.name}さんがログイン中" %>
-            </span>
-            <% else %>
-            <span class="not-rogin">ログインしていません</span>
-            <% end %>
-          </div>
-          <div class="collapse navbar-collapse navbar-right" id="navbarEexample1">
-            <ul class="nav navbar-nav">
-              <li><%= link_to "TOP", homes_top_path %></li>
-              <li><%= link_to "部位から探す", genres_path %></li>
-              <% if user_signed_in? %>
-                <li><%= link_to "MyNote", user_path(current_user.id) %></li>
-                <li><%= link_to "Note一覧", notes_path %></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to "新規登録", new_user_registration_path %></li>
-                <li><%= link_to "ログイン", new_user_session_path %></li>
-                <li><%= link_to "管理人はこちら", new_admin_session_path %></li>
-              <% end %>
-              </div>
-            </ul>
-          </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to image_tag('muscle-icon.png', :size => '100x100'), root_path %>
+          <% if user_signed_in? %>
+          <span class="rogin-user-name">
+            <%= "#{current_user.name}さんがログイン中" %>
+          </span>
+          <% else %>
+          <span class="not-rogin">ログインしていません</span>
+          <% end %>
         </div>
-      </nav>
-    </header><!-- /header -->
+        <div class="collapse navbar-collapse navbar-right" id="navbarEexample1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "TOP", homes_top_path %></li>
+            <li><%= link_to "部位から探す", genres_path %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to "MyNote", user_path(current_user.id) %></li>
+            <li><%= link_to "Note一覧", notes_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "管理人はこちら", new_admin_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header><!-- /header -->
   <%= yield %>
 </body>

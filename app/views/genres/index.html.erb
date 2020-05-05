@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="genre-card-content text-center">
+    <div id="sample" class="genre-card-content text-center fade_off">
       <% @genres.each do |genre| %>
         <%= link_to muscles_path(genre_id: genre.id) do %>
           <div class="genre-card">
