@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :notes, dependent: :destroy
   has_many :likes
+  has_many :comments, dependent: :destroy
 
 end
