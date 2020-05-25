@@ -2,6 +2,7 @@ class Note < ApplicationRecord
   has_many :note_images, dependent: :destroy
   has_many :likes, dependent: :destroy
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :name, presence: true
