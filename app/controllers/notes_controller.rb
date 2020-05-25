@@ -26,6 +26,7 @@ class NotesController < ApplicationController
 
   def show
     @user = User.find(@note.user_id)
+    @comment = Comment.new
   end
 
   def edit; end

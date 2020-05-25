@@ -1,23 +1,23 @@
 <div class="container">
  <div>
   <%= link_to :back do %>
-    <i class="fas fa-backward">戻る</i>
+  <i class="fas fa-backward">戻る</i>
   <% end %>
- </div>
- <div class="row row-contents-margin-bottom">
+</div>
+<div class="row row-contents-margin-bottom">
   <div class="col-xs-offset-1 col-xs-10">
     <h2 class="heading-style">
       <%= @note.title %>
     </h2>
-   <%= l @note.created_at, format: :short %>
-   <span id="likes_buttons_<%= @note.id %>">
+    <%= l @note.created_at, format: :short %>
+    <span id="likes_buttons_<%= @note.id %>">
      <%= render partial: 'likes/like', locals: {note: @note} %>
    </span>
    <% if current_user.id == @user.id %>
-     <div class="text-right">
-       <%= link_to "編集する", edit_note_path(@note.id), class: "btn btn-success" %>
-       <%= link_to "削除する", note_path(@note.id), method: :delete, data:{ confirm: "このノートを削除しますか？"}, class: "btn btn-danger" %>
-     </div>
+   <div class="text-right">
+     <%= link_to "編集する", edit_note_path(@note.id), class: "btn btn-success" %>
+     <%= link_to "削除する", note_path(@note.id), method: :delete, data:{ confirm: "このノートを削除しますか？"}, class: "btn btn-danger" %>
+   </div>
    <% end %>
    <tr>
      <td>
@@ -25,6 +25,20 @@
      </td>
      <td><%= @note.body.html_safe %></td>
    </tr>
-  </div>
+   <h2><%= @note.comments.count %>件コメント</h2>
+   <% @note.comments.each do |comment| %>
+     <%= comment.user.name %>
+     <%= comment.created_at.strftime('%Y/%m/%d') %>
+     <%= comment.comment %>
+     <% if comment.user == current_user %>
+       <%= link_to "削除", note_comment_path(comment.note, comment), method: :delete %>
+     <% end %>
+   <% end %>
+   <%= form_for [@note, @comment] do |f| %>
+     <p><%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %></p>
+     <%= f.submit "送信する" %>
+   <% end %>
+
  </div>
+</div>
 </div>
